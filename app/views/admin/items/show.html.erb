@@ -1,0 +1,35 @@
+<h1>商品詳細ページ</h1>
+<% if @item.image.attached? %>
+  <%= image_tag @item.image, size: "400x300" %>
+<% else %>
+  <%= image_tag "no_image", size: "400x300" %>
+<% end %>
+<table>
+  <tbody>
+    <tr>
+      <td>商品名</td>
+      <td><%= @item.name%></td>
+    </tr>
+    <tr>
+      <td>商品説明</td>
+      <td><%= @item.opinion %></td>
+    </tr>
+    <tr>
+      <td>ジャンル</td>
+      <td><%= @item.genre.genre_name %></td>
+    </tr>
+    <tr>
+      <td>税込価格<br>(税抜価格)</td>
+      <td><%= (@item.price_without_tax*1.1).floor.to_s(:delimited)%>(<%= @item.price_without_tax %>)円</td>
+    </tr>
+    <tr>
+      <% if @item.is_active == true %>
+        <td>販売中</td>
+      <% else %>
+        <td>売切れ</td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to "編集する", edit_admin_item_path(@item.id) %>
