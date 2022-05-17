@@ -22,6 +22,7 @@ namespace :admin do
 end
 
 root to: "public/items#top"
+ resources :customers, only: [:show, :edit, :update] 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
