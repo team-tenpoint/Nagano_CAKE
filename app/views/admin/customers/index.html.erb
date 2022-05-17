@@ -1,1 +1,42 @@
-<h1>customer#index</h1>
+<h3>customer#index</h3>
+
+<!--<div class = "contener">-->
+<!-- <div class = "row">-->
+  <h2>会員一覧</h2>
+   <div class = "table">
+    <thead>
+       <tr>
+         <th colspan="4"></th>
+         <th>会員ID</th>
+         <th>氏名</th>
+         <th>メールアドレス</th>
+         <th>ステータス</th>
+       </tr>
+     </thead>
+      <tbody>
+        <% @customers.each do |customer| %>
+         <tr>
+          <td><%= customer.id %></td>
+          <td><%= link_to customer.last_name + customer.first_name, admin_customer_path(customer.id) %></td>
+          <td><%= customer.email %></td>
+           <!--一時的にコメントアウト中 会員ステータス部分-->
+          <td><%= customer.is_deleted %></td>
+         </tr>
+        <% end %>
+      </tbody>
+    </div>
+    
+    <!--ページネーション　仮置き(kaminari導入まで)-->
+    <div class = "pagenation">
+     <table border="1">
+      <tr>
+        <th><%= link_to "1", admin_customers_path %></th>
+        <th><%= link_to "2", admin_customers_path %></th>
+        <th><%= link_to "3", admin_customers_path %></th>
+        <th><%= link_to "next >", admin_customers_path %></th>
+        <th><%= link_to "last >>", admin_customers_path %></th>
+      </tr>
+    </table>
+   </div>
+<!--  </div>-->
+<!--</div>-->
