@@ -14,8 +14,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
 namespace :admin do
   root to: "orders#index"
+
   resources :genres, only: [:index, :create, :edit, :update]
   resources :items, except: [:destroy]
+  resources :customers, only: [:index, :show, :edit, :update]
+
 end
 
 root to: "public/items#top"
