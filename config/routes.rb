@@ -14,6 +14,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
 namespace :admin do
   root to: "orders#index"
+  resources :orders, only: [:show, :update]
+  resources :order_details, only: [:update]
 end
 
 root to: "public/items#top"
