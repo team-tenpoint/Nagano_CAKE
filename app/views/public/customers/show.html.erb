@@ -3,10 +3,10 @@
 <!--<div class = "container">-->
 <!--  <div class = "row">-->
   <h2>マイページ</h2>
-   
+
    <h1>登録情報</h1>
     <%= link_to "編集する", edit_customer_path(@customer.id),class: "btn btn-success" %>
-    
+
     <div class = "table">
       <tbody>
         <tr>
@@ -16,7 +16,7 @@
            <th>カナ</th>
             <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
            <th>郵便番号</th>
-            <td><%= @customer.postal_cord %></td>
+            <td><%= @customer.postal_code %></td>
            <th>住所</th>
             <td><%= @customer.address %></td>
            <th>電話番号</th>
@@ -35,8 +35,8 @@
          </tr>
        </tbody>
     </div>
-    
-    
-    
+
+
+
 # <!--  </div>-->
 # <!--</div>-->

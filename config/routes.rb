@@ -22,7 +22,14 @@ namespace :admin do
 end
 
 root to: "public/items#top"
- resources :customers, only: [:show, :edit, :update] 
 
+
+scope module: :public do
+    
+ get '/customers/quit' => 'customers#quit', as: 'quit'
+ resources :customers, only: [:show, :edit, :update]
+
+
+end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
