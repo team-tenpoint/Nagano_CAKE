@@ -27,10 +27,10 @@
 
            <th>メールアドレス</th>
             <td><%= f.text_field :email %></td>
-             
+
           <td><br><%= f.submit '変更を保存', class:"btn btn-success" %><br /></td>
-          <!--以下、パス分かるまでコメントアウト-->
-          <td><%#= link_to "退会する", %></td>
+
+          <td><%= link_to "退会する", quit_path, class:"btn btn-danger" %></td>
        </tr>
       <% end %>
      </tbody>
