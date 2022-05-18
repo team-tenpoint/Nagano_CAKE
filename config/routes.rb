@@ -1,20 +1,16 @@
 Rails.application.routes.draw do
- # 顧客用
-# URL /customers/sign_in ...
+
 devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
 
-# 管理者用
-# URL /admin/sign_in ...
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
 
 namespace :admin do
   root to: "orders#index"
-
   resources :genres, only: [:index, :create, :edit, :update]
   resources :items, except: [:destroy]
   resources :customers, only: [:index, :show, :edit, :update]
@@ -22,6 +18,13 @@ namespace :admin do
 end
 
 root to: "public/items#top"
+get "about" => "public/items#about"
+delete "cart_items" => "public/cart_items#all_destroy"
+
+scope module: :public do
+  resources :cart_items
+  resources :items
+end
 
 
 scope module: :public do

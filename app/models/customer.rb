@@ -4,8 +4,9 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # アソシエーション設定 注文、アドレス、カート(内の商品)
 
+  has_many :cart_items
+  
   # has_many :orders, dependent: :destroy
 
   # has_many :address, dependent: :destroy
