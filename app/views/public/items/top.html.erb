@@ -1,3 +1,17 @@
-<h1>会員側topページ</h1>
+<p>
+  ようこそ、ながのCAKEへ！<br>
+  このサイトは、ケーキ販売のECサイトになります。<br>
+  会員でない方も商品の閲覧はできますが、<br>
+  購入には会員登録が必要になります。
+</p>
 
-<%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+<h1>新着商品</h1>
+<% @items.reverse_each do |item| %>
+  <%= link_to item_path(item) do %>
+    <%= image_tag item.image, size: "200x100" %>
+    <p><%= item.name %></p>
+    <p>¥<%= (item.price_without_tax*1.1).floor.to_s(:delimited) %></p>
+  <% end %>
+<% end %>
+
+<%= link_to "全ての商品を見る", items_path %>
