@@ -20,11 +20,7 @@
        <%= f.radio_button :delivery_address, :registered_delivery_address %>
        <%= f.label :delivery_address, "登録済み住所から選択" %>
       <!--プルダウン部分-->
-         <%#= form_with(model: @order, local: true) do |f| %>
-          <div class="form-group">
-           <%#= f.label :delivery_address, :registered_delivery_address %>
-           <%#= f.select :delivery_address, :registered_delivery_address, { include_blank: '選択してください'} %>
-          <%# end %>
+        <%= f.select :delivery_address, options_from_collection_for_select(current_customer.addresses, :id, :address), prompt: "選択してください" %>
 
 
        <%= f.radio_button :delivery_address, :new_delivery_address %>
