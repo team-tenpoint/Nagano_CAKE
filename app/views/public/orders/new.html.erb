@@ -1,0 +1,42 @@
+
+
+<h1>注文情報入力</h1>
+  <%= form_with model: @order, url: confirm_path, method: :post do |f| %>
+   <span class>支払い情報</span>
+      <div class= "form">
+        <%= f.radio_button :payment_method, :credit_card %>
+        <%= f.label :payment_method, "クレジットカード" %>
+        <%= f.radio_button :payment_method, :transfer %>
+        <%= f.label :payment_method, "現金振込" %>
+      </div>
+
+     <div class="form">
+       <%#= f.radio_button :delivery_address %>
+       <%#= f.label :delivery_address, "ご自身の住所" %><br />
+       〒<%= current_customer.postal_code %><br />
+         <%= current_customer.address %><br />
+         <%= current_customer.last_name %><%= current_customer.first_name %>
+        <br />
+
+       <%#= f.radio_button :delivery_address %>
+       <%#= f.label :delivery_address, "登録済み住所から選択" %>
+      <!--プルダウン部分-->
+       <%#= f.select :delivery_address,  @address, :id, include_blank: "選択して下さい" %>
+
+
+       <%#= f.radio_button :delivery_address %>
+       <%#= f.label :delivery_address, "新しいお届け先" %><br />
+
+       <%= f.label :postal_code, "郵便番号" %>
+       <%= f.text_field :postal_code %>
+
+       <%= f.label :address, "住所" %>
+       <%= f.text_field :address %>
+
+       <%= f.label :delivery_name, "宛名" %>
+       <%= f.text_field :delivery_name %>
+     </div>
+
+     <%= f.submit "確認画面に進む", class: "btn btn-prymary" %>
+
+ <% end %>

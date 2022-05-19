@@ -28,11 +28,18 @@ end
 
 
 scope module: :public do
-    
  get '/customers/quit' => 'customers#quit', as: 'quit'
  resources :customers, only: [:show, :edit, :update]
-
-
 end
+
+scope module: :public do
+  get '/orders/new' => 'orders#new',as: 'new'
+  resources :orders,only:[:create, :index, :show]
+  post '/orders/confirm' => 'orders#confirm', as: 'confirm'
+  get '/orders/complete' => 'orders#complete', as: 'complete'
+end
+
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
