@@ -3,7 +3,7 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    # @address = Address.new
+   
   end
 
   def confirm

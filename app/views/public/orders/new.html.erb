@@ -21,7 +21,12 @@
        <%#= f.radio_button :delivery_address %>
        <%#= f.label :delivery_address, "登録済み住所から選択" %>
       <!--プルダウン部分-->
-       <%#= f.select :delivery_address,  @address, :id, include_blank: "選択して下さい" %>
+      <%= form_with(delivery_address, url: new_path, local: true, method: :patch) do |f| %>
+
+              <th>
+                   <%= f.select :delivery_address,  @address, :id, include_blank: "選択して下さい" %>
+              </th>
+      <% end %>
 
 
        <%#= f.radio_button :delivery_address %>
