@@ -7,7 +7,7 @@ class Admin::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order_details = @order.order_details.all
-    @total_price = @order_details.sum{|order_detail|order_detail.price_including_tax * order_detail.quanity}
+    @total_price = @order_details.sum{|order_detail|order_detail.item.price_without_tax* 1.1 * order_detail.quanity}
   end
 
   def update
@@ -15,7 +15,7 @@ class Admin::OrdersController < ApplicationController
 		if @order.update(order_params)
 		   redirect_to admin_order_path(@order)
 		else
-		   render show
+		   render "show"
 		end
   end
 

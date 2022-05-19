@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_17_134315) do
+ActiveRecord::Schema.define(version: 2022_05_18_031413) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2022_05_17_134315) do
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
+
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -78,17 +79,7 @@ ActiveRecord::Schema.define(version: 2022_05_17_134315) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
-
-  create_table "order_details", force: :cascade do |t|
-    t.integer "item_id", null: false
-    t.integer "order_id", null: false
-    t.integer "price_including_tax", null: false
-    t.integer "quanity", null: false
-    t.integer "make_status", default: 0, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-   create_table "genres", force: :cascade do |t|
+  create_table "genres", force: :cascade do |t|
     t.string "genre_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -100,6 +91,16 @@ ActiveRecord::Schema.define(version: 2022_05_17_134315) do
     t.text "opinion", null: false
     t.integer "price_without_tax", null: false
     t.boolean "is_active", default: true, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "order_details", force: :cascade do |t|
+    t.integer "item_id", null: false
+    t.integer "order_id", null: false
+    t.integer "price_including_tax", null: false
+    t.integer "quanity", null: false
+    t.integer "make_status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

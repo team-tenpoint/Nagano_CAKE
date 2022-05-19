@@ -8,7 +8,7 @@
     </td>
     <th>注文日</th>
     <td>
-        <%= @order.created_at.strftime('%Y/%m/%d %H:%M') %>
+        <%= @order.created_at.strftime('%Y/%m/%d') %>
     </td>
     <th>配送先</th>
     <td>
@@ -20,10 +20,10 @@
         <%= @order.payment_method_i18n %>
     </td>
     <th>注文ステータス</th>
-    <%= form_for (@order, url: admin_order_path(@order), method: :patch) do |f| %>
+    <%= form_with (@order, url: admin_order_path(@order),local: true, method: :patch) do |f| %>
     <td>
-        <%= f.select :order_status, Order.statuses_i18n.invert %>
-        <%= f.submit '更新',class:"btn" %>
+        <%= f.select :order_status, Order.order_statuses_i18n.invert %>
+        <%= f.submit '更新' %>
     </td>
     <% end %>
   </table>
@@ -45,18 +45,18 @@
                 <%= order_detail.item.name %>
               </th>
               <th>
-                ¥<%= order_detail.price_including_tax  %>
+                ¥<%= (order_detail.price_including_tax *1.1).floor  %>
               </th>
               <th>
                 <%= order_detail.quanity %>
               </th>
               <th>
-                ¥<%= order_detail.quanity * order_detail.price_including_tax %>
+                ¥<%= order_detail.quanity * (order_detail.price_including_tax * 1.1).floor %>
               </th>
-              <%= form_for(order_detail, url: admin_order_detail_path(order_detail), method: :patch) do |f| %>
+              <%= form_with(order_detail, url: admin_order_detail_path(order_detail), local: true, method: :patch) do |f| %>
               <th>
                 <%= f.select :make_status, OrderDetail.make_statuses_i18n.invert %>
-                <%= f.submit '更新'  ,class: "btn" %>
+                <%= f.submit '更新'  %>
               </th>
               <% end %>
           </tr>
@@ -65,7 +65,7 @@
     <table>
         <tr>
             <th>商品合計</th>
-            <td>¥<%= @total_price %></td>
+            <td>¥<%= @total_price.floor %></td>
         </tr>
         <tr>
             <th>送料</th>
