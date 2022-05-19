@@ -24,6 +24,9 @@ delete "cart_items" => "public/cart_items#all_destroy"
 scope module: :public do
   resources :cart_items
   resources :items
+  get '/customers/quit' => 'customers#quit', as: 'quit'
+  resources :customers, only: [:show, :edit, :update]
+  resources :addresses, except: [:new, :show]
 end
 
 
@@ -38,6 +41,7 @@ scope module: :public do
   post '/orders/confirm' => 'orders#confirm', as: 'confirm'
   get '/orders/complete' => 'orders#complete', as: 'complete'
 end
+
 
 
 
