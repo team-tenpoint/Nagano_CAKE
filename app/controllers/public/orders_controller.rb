@@ -10,6 +10,8 @@ class Public::OrdersController < ApplicationController
     @order = Order.new
     @order_customer_id = current_customer.id
     @cart_items = current_customer.cart_items
+    @order_postage = 800
+    @total = 0
   end
 
   def create

@@ -21,15 +21,18 @@
    </table>
 
    <div class="table">
+     <% @cart_items.each do |cart_item| %>
      <tr>
        <th>送料</th>
-        <td></td>
+        <td><%= @order_postage %></td>
        <th>合計</th>
-        <td></td>
+        <td><%= (cart_item.item.price_without_tax * 1.1).floor * (cart_item.quantity) %></td>
        <th>請求金額</th>
-        <td></td>
+        <td><%= (cart_item.item.price_without_tax * 1.1).floor * (cart_item.quantity) + @order_postage  %></td>
      </tr>
+     <% end %>
    </div>
 
 
-   <%#= f.submit "注文を確定する", class: "btn btn-success" %>
+   <%= link_to "注文を確定する", complete_path, class: "btn btn-success" %>
+   <%= link_to "戻る", new_path %>
