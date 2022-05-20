@@ -3,7 +3,7 @@
   <h2>注文情報確認</h2>
    <table class="table">
     <thead>
-     <%#= @cart_items.each do |cart_item| %>
+     <% @cart_items.each do |cart_item| %>
        <tr>
         <th>商品名</th>
         <th>単価(税込)</th>
@@ -12,13 +12,12 @@
        </tr>
      </thead>
       <tbody>
-       <!--エラー多発 order_datailの情報持ってて来れてない??-->
-       <td><%#= image_tag cart_item_url, size: "50×70" %><%#= cart_item.item_name %></td>
-       <td><%#= @item.price_including_tax.to_s(:delimited) %></td>
-       <td><%#= cart_item.quantity %>個</td>
-       <td><%#= ((cart_item.item.price_including_tax).floor*cart_item.quantity).to_s(:delimited) %></td>
+       <td><%= image_tag cart_item.item.image, size: "70x70" %><%= cart_item.item.name %></td>
+       <td><%= (cart_item.item.price_without_tax * 1.1).floor %></td>
+       <td><%= cart_item.quantity %>個</td>
+       <td><%= (cart_item.item.price_without_tax * 1.1).floor * (cart_item.quantity) %></td>
       </tbody>
-    <%# end %>
+    <% end %>
    </table>
 
    <div class="table">
@@ -31,3 +30,6 @@
         <td></td>
      </tr>
    </div>
+
+
+   <%#= f.submit "注文を確定する", class: "btn btn-success" %>

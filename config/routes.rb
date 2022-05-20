@@ -37,9 +37,9 @@ end
 
 scope module: :public do
   get '/orders/new' => 'orders#new',as: 'new'
-  resources :orders,only:[:create, :index, :show]
   post '/orders/confirm' => 'orders#confirm', as: 'confirm'
   get '/orders/complete' => 'orders#complete', as: 'complete'
+  resources :orders,only:[:create, :index, :show]
 end
 
 

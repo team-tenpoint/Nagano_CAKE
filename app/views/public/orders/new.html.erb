@@ -18,22 +18,23 @@
          <%= current_customer.last_name %><%= current_customer.first_name %><br />
 
        <%= f.radio_button :delivery_address, :registered_delivery_address %>
-       <%= f.label :delivery_address, "登録済み住所から選択" %>
-      <!--プルダウン部分-->
-        <%= f.select :delivery_address, options_from_collection_for_select(current_customer.addresses, :id, :address), prompt: "選択してください" %>
+       <%= f.label :delivery_address, "登録済み住所から選択" %><br />
+       
+      <!--プルダウン部分 options_from_collection_for_selectメソッドを使用-->
+        <%= f.select :delivery_address, options_from_collection_for_select(current_customer.addresses, :id, :address), prompt: "選択してください" %><br />
 
 
        <%= f.radio_button :delivery_address, :new_delivery_address %>
        <%= f.label :delivery_address, "新しいお届け先" %><br />
 
        <%= f.label :postal_code, "郵便番号" %>
-       <%= f.text_field :postal_code %>
+       <%= f.text_field :postal_code %><br />
 
        <%= f.label :address, "住所" %>
-       <%= f.text_field :address %>
+       <%= f.text_field :address %><br />
 
        <%= f.label :delivery_name, "宛名" %>
-       <%= f.text_field :delivery_name %>
+       <%= f.text_field :delivery_name %><br />
      </div>
 
      <%= f.submit "確認画面に進む", class: "btn btn-prymary" %>
