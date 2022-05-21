@@ -13,12 +13,17 @@
     <% @orders.each do |order| %>
      <tbody>
        <tr>
-         <td><%= order.created_at %></td>
-         <td>〒<%= order.postcode %></td>
-         <td><%= order.address %></td>
-         <td><%= order.name %></td>
+         <td><%= order.created_at.strftime %></td>
+         <td>
+          〒<%= order.postal_code  %>
+          <%= order.delivery_address %>
+          <%= order.item.name %><
+        </td>
+         <td><%= cart_item.item.name %></td>
+         <td><%#= %></td>
+         <td><%#= %></td>
        </tr>
      <% end %>
     </tbody>
-      <td><%= link_to "表示する", order_path(order.id), class: "btn btn-primary" %></td>
+      <td><%#= link_to "表示する", order_path(order.id), class: "btn btn-primary" %></td>
  </table>
