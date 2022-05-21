@@ -1,6 +1,7 @@
 
 
   <h2>注文情報確認</h2>
+  <%#= form_with model: @order, url: confirm_path, method: :post do |f| %>
    <table class="table">
     <thead>
      <% @cart_items.each do |cart_item| %>
@@ -34,5 +35,13 @@
    </div>
 
 
+  <P>支払い方法</P>
+    <%= @order.payment_method_i18n %>
+  <p>お届け先</p>
+    <%= %>
+    <%= %>
+
    <%= link_to "注文を確定する", complete_path, class: "btn btn-success" %>
    <%= link_to "戻る", new_path %>
+   
+ <%# end %>
