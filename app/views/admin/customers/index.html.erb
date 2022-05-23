@@ -1,12 +1,10 @@
-<div class="contener">
+<!--<div class="contener">-->
  <div class="row">
-  
-  <div class="col-lg-8 col-lg-4">
+  <div class="mx-auto">
   <h2>会員一覧</h2>
    <table class="table">
     <thead>
        <tr>
-         <th colspan="4"></th>
          <th>会員ID</th>
          <th>氏名</th>
          <th>メールアドレス</th>
@@ -31,14 +29,10 @@
       </tbody>
       </table>
     </div>
-   <div>
-  </div>
-
     <!--ページネーション　仮置き(kaminari導入まで)-->
-    <div class="contener">
-     <div class="row">
-      <div class = "pagenation">
-        <table border="1">
+   <div class="row align-bottom">
+      <div class="pagenation">
+        <table class="defalut">
          <tr>
           <th><%= link_to "1", admin_customers_path %></th>
           <th><%= link_to "2", admin_customers_path %></th>
