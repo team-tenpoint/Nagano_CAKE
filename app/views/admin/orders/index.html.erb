@@ -1,6 +1,6 @@
 <div>
     <h1>注文履歴一覧</h1>
-    <table>
+    <table class="defalut">
       <thead>
           <tr>
               <th>購入日時</th>
@@ -20,11 +20,10 @@
               <td>
                 <%=  order.customer.last_name %>
                 <%=  order.customer.first_name %>
-              </th>
-              <th>
-                <%= order.order_details %>
-              </th>
-              <th>
+              </td>
+              <td><%= order.order_details.sum(:quantity) %></td>
+              
+              <td>
                 <%= order.order_status_i18n %>
               </td>
           </tr>
