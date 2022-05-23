@@ -1,7 +1,7 @@
-<div>
-  <h1>配送先編集</h1>
+<div class='container'>
+  <h3>配送先編集</h3>
   <%= form_with model: @address, local:true ,method: :patch do |f| %>
-  <div class="form-group">
+  <div class="form-inline">
     <%= f.label :postal_code, '郵便番号（ハイフンなし）' %>
     <%= f.text_field :postal_code, class: 'form-control' %>
   </div>
@@ -13,8 +13,8 @@
     <%= f.label :name, '宛名' %>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="form-group">
-    <%= f.submit '変更内容を保存',class: 'btn ' %>
+  <div class="input-group-btn">
+    <%= f.submit '変更内容を保存',class: 'btn btn-success' %>
   </div>
   <% end %>
   <%= link_to 'Back', addresses_path %>
