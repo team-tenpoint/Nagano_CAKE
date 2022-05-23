@@ -1,9 +1,9 @@
-<h3>customer#index</h3>
-
-<!--<div class = "contener">-->
-<!-- <div class = "row">-->
+<div class="contener">
+ <div class="row">
+  
+  <div class="col-lg-8 col-lg-4">
   <h2>会員一覧</h2>
-   <div class = "table">
+   <table class="table">
     <thead>
        <tr>
          <th colspan="4"></th>
@@ -19,7 +19,6 @@
           <td><%= customer.id %></td>
           <td><%= link_to customer.last_name + customer.first_name, admin_customer_path(customer.id) %></td>
           <td><%= customer.email %></td>
-           <!--一enum導入まではfalse表示か-->
           <td>
            <% if customer.is_deleted == false %>
             <td><%= '有効' %></td>
@@ -30,19 +29,24 @@
          </tr>
         <% end %>
       </tbody>
+      </table>
     </div>
+   <div>
+  </div>
 
     <!--ページネーション　仮置き(kaminari導入まで)-->
-    <div class = "pagenation">
-     <table border="1">
-      <tr>
-        <th><%= link_to "1", admin_customers_path %></th>
-        <th><%= link_to "2", admin_customers_path %></th>
-        <th><%= link_to "3", admin_customers_path %></th>
-        <th><%= link_to "next >", admin_customers_path %></th>
-        <th><%= link_to "last >>", admin_customers_path %></th>
-      </tr>
-    </table>
-   </div>
-<!--  </div>-->
-<!--</div>-->
+    <div class="contener">
+     <div class="row">
+      <div class = "pagenation">
+        <table border="1">
+         <tr>
+          <th><%= link_to "1", admin_customers_path %></th>
+          <th><%= link_to "2", admin_customers_path %></th>
+          <th><%= link_to "3", admin_customers_path %></th>
+          <th><%= link_to "next >", admin_customers_path %></th>
+          <th><%= link_to "last >>", admin_customers_path %></th>
+        </tr>
+       </table>
+     </div>
+  </div>
+</div>
