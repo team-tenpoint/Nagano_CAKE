@@ -1,19 +1,26 @@
 <header>
-  <ul>
-    <li>
-      <%= link_to "商品一覧", admin_items_path %>
-    </li>
-    <li>
-      <%= link_to "会員一覧", admin_customers_path %>
-    </li>
-    <li>
-      <%=link_to "注文履歴一覧", admin_root_path %>
-    </li>
-    <li>
-      <%= link_to "ジャンル一覧", admin_genres_path %>
-    </li>
-    <li>
-      <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-    </li>
-  </ul>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <span class="navbar-brand p-3">Nagano Cake</span>
+      <div>
+        <ul class="navbar-nav">
+          <li>
+            <%= link_to "商品一覧", admin_items_path, class: "nav-link", style: "color:white;" %>
+          </li>
+          <li>
+            <%= link_to "会員一覧", admin_customers_path, class: "nav-link", style: "color:white;" %>
+          </li>
+          <li>
+            <%=link_to "注文履歴一覧", admin_root_path, class: "nav-link", style: "color:white;" %>
+          </li>
+          <li>
+            <%= link_to "ジャンル一覧", admin_genres_path, class: "nav-link", style: "color:white;" %>
+          </li>
+          <li>
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link", style: "color:white;" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </header>
