@@ -1,3 +1,5 @@
+<div class="container">
+<div class="row">
 <h1>注文履歴一覧</h1>
  <table class="table">
   <thead>
@@ -13,17 +15,19 @@
     <% @orders.each do |order| %>
      <tbody>
        <tr>
-         <td><%= order.created_at.strftime %></td>
+         <td><%#= order.created_at.strftime %></td>
          <td>
-          〒<%= order.postal_code  %>
+          〒<%= order.postal_code %>
           <%= order.delivery_address %>
-          <%= order.item.name %><
-        </td>
-         <td><%= cart_item.item.name %></td>
-         <td><%#= %></td>
-         <td><%#= %></td>
+          <%= order.delivery_name %>
+         </td>
+         <td><%= cart_item.item_id %></td>
+         <td><%= (cart_item.item.price_without_tax * 1.1).floor * (cart_item.quantity) %>円</td>
+         <td><#= order_status %></td>
        </tr>
      <% end %>
     </tbody>
-      <td><%#= link_to "表示する", order_path(order.id), class: "btn btn-primary" %></td>
+      <td><%#= link_to "表示する", order_path(@order.id), class: "btn btn-primary" %></td>
  </table>
+ </div>
+ </div>

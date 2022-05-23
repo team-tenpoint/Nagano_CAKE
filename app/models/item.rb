@@ -10,4 +10,9 @@ class Item < ApplicationRecord
     validates :price_without_tax
     validates :genre_id
   end
+  
+  def taxin_price
+   price*1.1
+  end
+  
 end

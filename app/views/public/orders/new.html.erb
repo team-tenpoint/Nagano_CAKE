@@ -1,14 +1,18 @@
-
-
-<h1>注文情報入力</h1>
+<div class="container">
+ <div class="row">
+  <div class="col-lg-3">
+  <h2>注文情報入力</h2>
   <%= form_with model: @order, url: orders_path, method: :post do |f| %>
    <span class>支払い情報</span>
       <div class= "form">
         <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
         <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %>
+
         <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
         <%= f.label :payment_method, Order.payment_methods_i18n[:transfer] %>
       </div>
+
+
 
      <div class="form">
        <%= f.radio_button :delivery_address, :your_own_address %>
@@ -37,6 +41,9 @@
        <%= f.text_field :delivery_name %><br />
      </div>
 
-     <%= f.submit "確認画面に進む", class: "btn btn-prymary" %>
+     <%= f.submit "確認画面に進む", url: confirm_path, class: "btn btn-prymary" %>
 
- <% end %>
+   <% end %>
+    </div>
+  </div>
+ </div>

@@ -1,7 +1,7 @@
 <h3>customers#edit</h3>
 
-<!--<div class = "contener">-->
-<!-- <div class = "row">-->
+<div class = "contener">
+ <div class = "row">
   <h2><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h2>
    <div class = "table">
    <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
@@ -43,5 +43,5 @@
       <% end %>
      </tbody>
   </div>
- <!-- </div>-->
- <!--</div>-->
+  </div>
+ </div>
