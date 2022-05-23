@@ -1,32 +1,38 @@
 <header>
-  <%= link_to "Logo", root_path %>
-  <ul>
-    <% if customer_signed_in? %>
-      <li>
-        <%= link_to "マイページ", customer_path(current_customer) %>
-      </li>
-      <li>
-        <%= link_to "商品一覧", items_path %>
-      </li>
-      <li>
-        <%= link_to "カート", cart_items_path %>
-      </li>
-      <li>
-        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "About", about_path %>
-      </li>
-      <li>
-        <%= link_to "商品一覧", items_path %>
-      </li>
-      <li>
-        <%= link_to "新規登録", new_customer_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_customer_session_path %>
-      </li>
-    <% end %>
-  </ul>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand p-3" href="/">Nagano Cake</a>
+      <div>
+        <ul class="navbar-nav">
+          <% if customer_signed_in? %>
+            <li>
+              <%= link_to "マイページ", customer_path(current_customer), class: "nav-link", style: "color:white;" %>
+            </li>
+            <li>
+              <%= link_to "商品一覧", items_path, class: "nav-link", style: "color:white;" %>
+            </li>
+            <li>
+              <%= link_to "カート", cart_items_path, class: "nav-link", style: "color:white;" %>
+            </li>
+            <li>
+              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link", style: "color:white;" %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "About", about_path, class: "nav-link", style: "color:white;" %>
+            </li>
+            <li>
+              <%= link_to "商品一覧", items_path, class: "nav-link", style: "color:white;" %>
+            </li>
+            <li>
+              <%= link_to "新規登録", new_customer_registration_path, class: "nav-link", style: "color:white;" %>
+            </li>
+            <li>
+              <%= link_to "ログイン", new_customer_session_path, class: "nav-link", style: "color:white;" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </header>
