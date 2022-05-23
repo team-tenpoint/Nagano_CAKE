@@ -21,6 +21,8 @@ end
 root to: "public/items#top"
 get "about" => "public/items#about"
 delete "cart_items" => "public/cart_items#all_destroy"
+post "/orders/confirm" => "public/orders#confirm"
+get "/orders/complete" => "public/orders#complete"
 
 scope module: :public do
   resources :cart_items
@@ -28,6 +30,7 @@ scope module: :public do
   get '/customers/quit' => 'customers#quit', as: 'quit'
   resources :customers, only: [:show, :edit, :update]
   resources :addresses, except: [:new, :show]
+  resources :orders
 end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
