@@ -5,14 +5,14 @@
   </div>
    </div>
    <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
-   
+
     <div class="form-group">
      <div class="col-lg-5">
       会員ID
        <%= @customer.id %>
        </div>
      </div>
-     
+
      <div class="form-group">
       <div class="col-lg-5">
        氏名
@@ -27,7 +27,7 @@
          <%= f.text_field :last_name_kana %>
          <%= f.text_field :first_name_kana %>
      </div>
-     
+
      <div class="form-group">
       <div class="col-lg-5">
         郵便番号
@@ -63,8 +63,9 @@
           <%= f.label :is_deleted, "有効" %>
           <%= f.radio_button :is_deleted, true %>
           <%= f.label :is_deleted, "無効" %>
+       </div>
           <%= f.submit '変更を保存', class:"btn btn-success" %><br />
-        </div>
+
        </div>
       <% end %>
   </div>
