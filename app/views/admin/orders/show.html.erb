@@ -1,33 +1,41 @@
 <div>
-  <table>
   <h1>注文履歴詳細</h1>
-    <th>購入者</th>
-    <td>
-        <%=  @order.customer.last_name %>
-        <%=  @order.customer.first_name %>
-    </td>
-    <th>注文日</th>
-    <td>
-        <%= @order.created_at.strftime('%Y/%m/%d') %>
-    </td>
-    <th>配送先</th>
-    <td>
-        <%= @order.delivery_address %></br>
+
+  <table>
+    <tbody>
+      <tr>
+        <th>購入者</th>
+        <td>
+          <%=  @order.customer.last_name %>
+          <%=  @order.customer.first_name %>
+        </td>
+      </tr>
+      <tr>
+        <th>注文日</th>
+        <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+      </tr>
+      <tr>
+        <th>配送先</th>
+        <td>
+        〒<%= @order.delivery_address %></br>
         <%= @order.delivery_name %>
-    </td>
-    <th>支払い方法</th>
-    <td>
-        <%= @order.payment_method_i18n %>
-    </td>
-    <th>注文ステータス</th>
-    <%= form_with (@order, url: admin_order_path(@order),local: true, method: :patch) do |f| %>
-    <td>
-        <%= f.select :order_status, Order.order_statuses_i18n.invert %>
-        <%= f.submit '更新' %>
-    </td>
-    <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th>支払方法</th>
+        <td><%= @order.payment_method_i18n %></td>
+      </tr>
+      <tr>
+        <th>注文ステータス</th>
+        <td>
+          <%= form_with model: @order,url: admin_order_path, method: :patch do |f| %>
+            <%= f.select :order_status, Order.order_statuses_i18n.invert %>
+      　　    <%= f.submit '更新', class: "btn "%>
+      　　<% end %>
+    　　</td>
+      </tr>
+    </tbody>
   </table>
-  
   <table>
       <thead>
           <tr>
@@ -41,24 +49,24 @@
       <tbody>
         <% @order_details.each do |order_detail| %>
           <tr>
-              <th>
+              <td>
                 <%= order_detail.item.name %>
-              </th>
-              <th>
-                ¥<%= (order_detail.price_including_tax *1.1).floor  %>
-              </th>
-              <th>
-                <%= order_detail.quanity %>
-              </th>
-              <th>
-                ¥<%= order_detail.quanity * (order_detail.price_including_tax * 1.1).floor %>
-              </th>
-              <%= form_with(order_detail, url: admin_order_detail_path(order_detail), local: true, method: :patch) do |f| %>
-              <th>
+              </td>
+              <td>
+                ¥<%= (order_detail.price_including_tax).floor  %>
+              </td>
+              <td>
+                <%= order_detail.quantity %>
+              </td>
+              <td>
+                ¥<%= (order_detail.quantity * order_detail.price_including_tax).floor %>
+              </td>
+              <td>
+              <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch do |f| %>
                 <%= f.select :make_status, OrderDetail.make_statuses_i18n.invert %>
-                <%= f.submit '更新'  %>
-              </th>
+                <%= f.submit '更新' , class: "btn" %>
               <% end %>
+              </td>
           </tr>
         <% end %>
       </tbody>
