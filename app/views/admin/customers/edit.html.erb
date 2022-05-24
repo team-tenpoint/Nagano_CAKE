@@ -1,71 +1,57 @@
 <div class="contener">
  <div class="row">
+  <div class="col-1"></div>
+   <div class="col-11">
    <h3 class="px-4 bg-light"><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h3>
-  </div>
- 
+
    <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
-   
-    <div class="form-group">
-     <div class="col-lg-5">
+
+    <div class="form-group row">
       会員ID
        <%= @customer.id %>
-       </div>
-     </div>
-     
-     <div class="form-group">
-      <div class="col-lg-5">
+    </div>
+
+     <div class="form-group row">
        氏名
         <%= f.text_field :last_name %>
         <%= f.text_field :first_name %>
-        </div>
       </div>
 
-     <div class="form-group">
-      <div class="col-lg-5">
+     <div class="form-group row">
        フリガナ
          <%= f.text_field :last_name_kana %>
          <%= f.text_field :first_name_kana %>
      </div>
-     
-     <div class="form-group">
-      <div class="col-lg-5">
+
+     <div class="form-group row">
         郵便番号
         <%= f.text_field :postal_code %>
-       </div>
       </div>
 
-     <div class="form-group">
-      <div class="col-lg-5">
+     <div class="form-group row">
         住所
         <%= f.text_field :address %>
-      </div>
      </div>
 
-      <div class="form-group">
-       <div class="col-lg-5">
+      <div class="form-group row">
          電話番号
          <%= f.text_field :telephone_number %>
-       </div>
       </div>
 
-      <div class="form-group">
-       <div class="col-lg-5">
+      <div class="form-group row">
          メールアドレス
          <%= f.text_field :email %>
        </div>
-       </div>
 
-      <div class="form-group">
-       <div class="col-lg-5">
+        <div class="form-group row">
          会員ステータス
           <%= f.radio_button :is_deleted, false %>
           <%= f.label :is_deleted, "有効"  %>
           <%= f.radio_button :is_deleted, true %>
           <%= f.label :is_deleted, "無効" %>
-       </div>
-          <%= f.submit '変更を保存', class:"btn btn-success" %><br />
-       
-       </div>
+         </div>
+       <%= f.submit '変更を保存', class:"btn btn-success" %><br />
       <% end %>
-  </div>
+     </div>
+   </div>
  </div>
