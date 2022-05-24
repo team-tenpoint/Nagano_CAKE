@@ -43,6 +43,7 @@
   <div class="row align-items-center">
     <div class ="col-8">
     <table class ="table">
+
       <thead class ="bg-light">
           <tr>
               <th>商品名</th>
@@ -70,7 +71,9 @@
               <td>
               <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch do |f| %>
                 <%= f.select :make_status, OrderDetail.make_statuses_i18n.invert %>
+
                 <%= f.submit '更新' , class: "btn btn-sm btn-success" %>
+
               <% end %>
               </td>
           </tr>
@@ -80,18 +83,25 @@
     </div>
     <div class ="col-4">
     <table>
+        
+        
+    <div class="row col-lg-12">
+      <table>
+       <tr>
+         <th>商品合計</th>
+         <td>¥<%= @total_price.floor %></td>
+        </th>
+        
         <tr>
-            <th>商品合計</th>
-            <td>¥<%= @total_price.floor %></td>
+         <th>送料</th>
+          <td>¥<%= @order.postage %></td>
         </tr>
+        
         <tr>
-            <th>送料</th>
-            <td>¥<%= @order.postage %></td>
+         <th>請求金額合計</th>
+         <td>¥<%= @order.total_price %></td>
         </tr>
-        <tr>
-            <th>請求金額合計</th>
-            <td>¥<%= @order.total_price %></td>
-        </tr>
+
     </table>
     </div>
   </div>
