@@ -6,3 +6,4 @@
     <p>¥<%= (item.price_without_tax*1.1).floor.to_s(:delimited) %></p>
   <% end %>
 <% end %>
+<%= paginate @items %>
