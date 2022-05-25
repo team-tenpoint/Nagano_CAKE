@@ -7,7 +7,7 @@
       退会する場合は、「退会する」をクリックしてください。
 
      <div class="row py-3 form-group justify-content-center">
-      <%= link_to"退会する", root_path, class:"btn btn-danger mr-5 px-4" %>
+      <%= link_to"退会する", root_path, method: :patch,data: { confilm: "本当に退会しますか？" }, class:"btn btn-danger mr-5 px-4" %>
       <%= link_to "退会しない",customer_path(current_customer), class: "btn btn-primary px-4" %>
     </div>
    </div>

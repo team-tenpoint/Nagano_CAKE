@@ -19,6 +19,10 @@ class Public::CustomersController < ApplicationController
   def quit
   end
 
+  def withdrawal
+    
+  end
+
 
 
   private
