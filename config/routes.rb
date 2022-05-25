@@ -25,12 +25,14 @@ post "/orders/confirm" => "public/orders#confirm"
 get "/orders/complete" => "public/orders#complete"
 
 scope module: :public do
+  patch '/customers/out' =>"customers#out",as:"out"
   resources :cart_items
   resources :items
   get '/customers/quit' => 'customers#quit', as: 'quit'
   resources :customers, only: [:show, :edit, :update]
   resources :addresses, except: [:new, :show]
   resources :orders
+  
 end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

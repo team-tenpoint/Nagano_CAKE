@@ -1,9 +1,8 @@
 <div class="container">
  <div class="row">
-  <h2>会員一覧</h2>
+  <h2 class="px-5 bg-light">会員一覧</h2>
    </div>
-
-  <div class ="row col-lg-10">
+  <div class ="row mt-4 col-lg-12">
     <table class ="table">
       <thead class ="defalut">
        <tr>
@@ -20,31 +19,20 @@
           <td><%= link_to customer.last_name + customer.first_name, admin_customer_path(customer.id) %></td>
           <td><%= customer.email %></td>
           <td>
-            <% if customer.is_deleted == false %>
-              <%= '有効' %>
-            <% else %>
-              <%= '退会' %>
-            <% end %>
+           <% if customer.is_deleted == false %>
+            <p class="text-success"><%= '有効' %></p>
+           <% else %>
+            <p class="text-secondary"><%= '退会' %></p>
+           <% end %>
           </td>
          </tr>
         <% end %>
       </tbody>
       </table>
     </div>
-    <!--ページネーション　仮置き(kaminari導入まで)-->
+
    <div class="row align-bottom">
     <div class="mx-auto">
-      <div class="pagenation">
-        <table class="defalut">
-         <tr>
-          <th><%= link_to "1", admin_customers_path %></th>
-          <th><%= link_to "2", admin_customers_path %></th>
-          <th><%= link_to "3", admin_customers_path %></th>
-          <th><%= link_to "next >", admin_customers_path %></th>
-          <th><%= link_to "last >>", admin_customers_path %></th>
-        </tr>
-       </table>
-     </div>
+     <%= paginate @customers %>
     </div>
-  </div>
-</div>
+   </div>
