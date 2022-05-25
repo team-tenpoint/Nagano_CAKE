@@ -10,6 +10,10 @@ class Order < ApplicationRecord
     validates :postal_code
     validates :delivery_address
     validates :delivery_name
+    validates :postage ,numericality: true
+    validates :total_price ,numericality: true
+    validates :payment_method
+    validates :order_status
   end
 end
 

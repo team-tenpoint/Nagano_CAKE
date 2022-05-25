@@ -5,10 +5,10 @@ class Item < ApplicationRecord
   has_many :order_details
 
   with_options presence: true do
-    validates :name
-    validates :opinion
+    validates :name ,uniqueness: true
+    validates :opinion ,uniqueness: true
     validates :image
-    validates :price_without_tax
+    validates :price_without_tax ,numericality: true
     validates :genre_id
   end
 end
