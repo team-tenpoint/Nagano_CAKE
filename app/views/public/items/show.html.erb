@@ -7,15 +7,15 @@
       <%= image_tag @item.image, size: "400x300" %>
     </div>
     <div class="col-7">
-      <h3 class="font-weight-bold"><%= @item.name %></h3>
-      <p><%= @item.opinion %></p>
-      <h3>¥<%= (@item.price_without_tax*1.1).floor.to_s(:delimited) %>(税込)</h3>
+      <h3 class="font-weight-bold mb-4"><%= @item.name %></h3>
+      <p class="mb-4"><%= @item.opinion %></p>
+      <h3 class="mb-4">¥<%= (@item.price_without_tax*1.1).floor.to_s(:delimited) %>(税込)</h3>
       <% if customer_signed_in? %>
         <div>
           <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
             <%= f.hidden_field :item_id, :value => @item.id %>
             <%= f.select :quantity, *[1..10] %>
-            <%= f.submit "カートに入れる", class: "btn btn-success" %>
+            <%= f.submit "カートに入れる", class: "btn btn-success ml-3" %>
           <% end %>
         </div>
       <% end %>
