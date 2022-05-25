@@ -1,4 +1,7 @@
 <div class = "container">
+  <div class="flash row">
+    <p class="text-success"><%= flash[:notice] %></p>
+  </div>
   <div class ="row">
     <h3 class ="px-5 bg-light">注文履歴詳細</h3>
   </div>
@@ -83,20 +86,20 @@
     </div>
     <div class ="col-4">
     <table>
-        
-        
+
+
     <div class="row col-lg-12">
       <table>
        <tr>
          <th>商品合計</th>
          <td>¥<%= @total_price.floor %></td>
         </th>
-        
+
         <tr>
          <th>送料</th>
           <td>¥<%= @order.postage %></td>
         </tr>
-        
+
         <tr>
          <th>請求金額合計</th>
          <td>¥<%= @order.total_price %></td>
