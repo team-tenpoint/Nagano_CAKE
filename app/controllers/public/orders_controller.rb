@@ -43,7 +43,8 @@ class Public::OrdersController < ApplicationController
         @order.delivery_address = @address.address
         @order.delivery_name = @address.name
       else
-        render :new
+        flash.now[:alert] = '登録済み住所がありません。'
+        render "new"
       end
     elsif params[:order][:select_address] == "2"
       @address = Address.new
@@ -56,10 +57,11 @@ class Public::OrdersController < ApplicationController
         @order.delivery_address = @address.address
         @order.delivery_name = @address.name
       else
-        render :new
+        flash.now[:alert] = '住所を正しく入力してください。'
+        render "new"
       end
     else
-      render :new
+      render "new"
     end
     @cart_items = current_customer.cart_items
     @postage = 800
