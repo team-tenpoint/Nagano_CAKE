@@ -1,21 +1,23 @@
+<p class ="text-success"><%= notice %></p>
+<p class ="text-danger"><%= alert %></p>
 <div class='container'>
   <h3>配送先編集</h3>
   <%= form_with model: @address, local:true ,method: :patch do |f| %>
-  
+
   <div class="form-group">
     <div class="form-inline">
     <%= f.label :postal_code, '郵便番号（ハイフンなし）' %>
     <%= f.text_field :postal_code, class: 'form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <div class="form-inline">
     <%= f.label :address, '住所' %>
     <%= f.text_field :address, class: 'form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <div class="form-inline ">
     <%= f.label :name, '宛名' %>
