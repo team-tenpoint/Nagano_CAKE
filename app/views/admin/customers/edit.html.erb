@@ -1,58 +1,61 @@
 <div class="container">
   <div class="row">
-    <div class="offset-2">
    <h3 class="px-4 bg-light"><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h3>
+   </div>
 
    <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
-
-    <div class="field form_group row mb-4">
-      <th><%= f.label "会員ID", class: "col-2" %></th>
+   
+   <div class="row">
+    <div class="table">
+     
+      <div class="field form_group row mb-4">
+       <%= f.label "会員ID", class: "col-2" %>
        <div class="col-3"><%= @customer.id %></div>
-    </div>
+      </div>
 
-     <div class="form-group row">
+      <div class="field form_group row mb-4">
        <th><%= f.label "名前", class: "col-2" %></th>
         <div class="col-2"><%= f.text_field :last_name %></div>
         <div class="col-8"><%= f.text_field :first_name %></div>
       </div>
 
-     <div class="form-group row">
+     <div class="field form_group row mb-4">
         <th><%= f.label "フリガナ", class: "col-2" %></th>
          <div class="col-2"><%= f.text_field :last_name_kana %></div>
          <div class="col-8"><%= f.text_field :first_name_kana %></div>
      </div>
 
-     <div class="form-group row">
+      <div class="field form_group row mb-4">
          <th><%= f.label "郵便番号", class: "col-2" %></th>
-        <div class="col-2"><%= f.text_field :postal_code %></div>
+        <div class="col-4"><%= f.text_field :postal_code %></div>
       </div>
 
-     <div class="form-group row">
+     <div class="field form_group row mb-4">
         <th><%= f.label "住所", class: "col-2" %></th>
         <div class="col-4"><%= f.text_field :address %></div>
      </div>
 
-      <div class="form-group row">
+      <div class="field form_group row mb-4">
           <th><%= f.label "電話番号", class: "col-2" %></th>
          <div class="col-2"><%= f.text_field :telephone_number %></div>
       </div>
 
-      <div class="form-group row">
+      <div class="field form_group row mb-4">
           <th><%= f.label "メールアドレス", class: "col-2" %></th>
          <div class="col-2"><%= f.text_field :email %></div>
        </div>
 
-        <div class="form-group row">
+        <div class="field form_group row mb-4">
           <th><%= f.label "会員ステータス", class: "col-2" %></th>
           <div class="form-check">
-          <%= f.radio_button :is_deleted, false %>
-          <%= f.label :is_deleted, "有効"  %>
-          <%= f.radio_button :is_deleted, true %>
-          <%= f.label :is_deleted, "無効" %>
+           <%= f.radio_button :is_deleted, false %>
+           <%= f.label :is_deleted, "有効"  %>
+           <%= f.radio_button :is_deleted, true %>
+           <%= f.label :is_deleted, "無効" %>
           </div>
-         </div>
+        </div>
+       </div>
+      </div>
        <%= f.submit '変更を保存', class:"btn btn-success" %><br />
       <% end %>
-     </div>
-   </div>
- </div>
+</div>
