@@ -1,27 +1,25 @@
 <div class = "container">
-  <p class ="text-success"><%= notice %></p>
-  <div class ="row">
+ <div class = "row">
    <div class="col-1"></div>
    <div class="col-11">
     <h3 class ="px-5 bg-light">マイページ</h3>
-  </div>
+   </div>
  </div>
  
- 
    <div class="form-group row">
-      <h4 class="px-3">登録情報</h4>
-        <%= link_to "編集する", edit_customer_path(@customer.id),class: "btn btn-success" %>
-    </div>
+     <h4 class="px-3">登録情報</h4>
+       <%= link_to "編集する", edit_customer_path(@customer.id),class: "btn btn-success" %>
+   </div>
   
     
      
    <div class="row">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col" class="bg-light font-weight-normal">氏名</th>
-            <th class="font-weight-normal"><%= @customer.last_name %> <%= @customer.first_name %></th>
-          </tr>
+     <table class="table table-bordered">
+       <thead>
+         <tr>
+           <th scope="col" class="bg-light font-weight-normal">氏名</th>
+           <th class="font-weight-normal"><%= @customer.last_name %> <%= @customer.first_name %></th>
+         </tr>
         </thead>
 
         <tbody>

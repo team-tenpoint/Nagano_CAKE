@@ -1,57 +1,53 @@
 <div class="container">
- <p class ="text-success"><%= notice %></p>
- <p class ="text-danger"><%= alert %></p>
   <div class ="row">
-   <div class="col-1"></div>
-   <div class="col-11">
     <h4 class ="px-5 bg-light">会員情報編集</h4>
-     <%= form_with model: @customer, url: customer_path(@customer.id), method: :patch do |f| %>
-
-        <div class="field form_group row mb-2">
-          <th>会員ID</th>
-           <td><%= @customer.id %></td>
-         </div>
-
-         <div class="field form_group row mb-2">
-          <th>氏名</th>
-            <td><%= f.text_field :last_name, class: "col-4" %></td>
-            <td><%= f.text_field :first_name, class: "col-2" %></td>
-         </div>
-
-          <div class="field form_group row mb-2">
-           <th>フリガナ</th>
-            <td><%= f.text_field :last_name_kana,class: "col-4" %></td>
-            <td><%= f.text_field :first_name_kana,class: "col-4" %></td>
-          </div>
-
-            <div class="field form_group row mb-2">
-              <th>郵便番号</th>
-               <td><%= f.text_field :postal_code,class: "col-4" %></td>
-            </div>
-
-             <div class="form-group row">
-             <th>住所</th>
-              <td><%= f.text_field :address,class: "col-4" %></td>
-           </div>
-
-
-           <div class="form-group row">
-           <th>電話番号</th>
-            <td><%= f.text_field :telephone_number,class: "col-4" %></td>
-           </div>
-
-          <div class="form-group row">
-           <th>メールアドレス</th>
-            <td><%= f.text_field :email,class: "col-4" %></td>
-          </div>
-
-
-            <div class="mx-auto">
-               <%= f.submit '変更を保存', class:"btn btn-success" %>
-
-               <%= link_to "退会する", quit_path, class:"btn btn-danger" %>
-           </div>
-        </div>
-      <% end %>
-     </div>
   </div>
+
+
+  <%= form_with model: @customer, url: customer_path(@customer.id), method: :patch do |f| %>
+
+   <div class="row">
+    <div class="table">
+
+      <div class="field form_group row mb-4">
+       <th><%= f.label "名前", class: "col-2" %></th>
+        <div class="col-2"><%= f.text_field :last_name %></div>
+        <div class="col-8"><%= f.text_field :first_name %></div>
+      </div>
+
+     <div class="field form_group row mb-4">
+        <th><%= f.label "フリガナ", class: "col-2" %></th>
+         <div class="col-2"><%= f.text_field :last_name_kana %></div>
+         <div class="col-8"><%= f.text_field :first_name_kana %></div>
+     </div>
+
+      <div class="field form_group row mb-4">
+         <th><%= f.label "郵便番号", class: "col-2" %></th>
+        <div class="col-4"><%= f.text_field :postal_code %></div>
+      </div>
+
+     <div class="field form_group row mb-4">
+        <th><%= f.label "住所", class: "col-2" %></th>
+        <div class="col-4"><%= f.text_field :address %></div>
+     </div>
+
+      <div class="field form_group row mb-4">
+          <th><%= f.label "電話番号", class: "col-2" %></th>
+         <div class="col-2"><%= f.text_field :telephone_number %></div>
+      </div>
+
+      <div class="field form_group row mb-4">
+          <th><%= f.label "メールアドレス", class: "col-2" %></th>
+         <div class="col-2"><%= f.text_field :email %></div>
+       </div>
+     </div>
+   </div>
+
+  <div class="mx-auto">
+   <%= f.submit '変更を保存', class:"btn btn-success" %>
+
+   <%= link_to "退会する", quit_path, class:"btn btn-danger" %>
+  </div>
+ </div>
+<% end %>
+</div>
