@@ -18,3 +18,32 @@ ja:
         waiting_for_production: "制作待ち"
         production: "製作中"
         production_completed: "制作完了"
+
+  activerecord:
+    attributes:
+      customer:
+        email: "メールアドレス"
+        password: "パスワード"
+        first_name: "名前"
+        last_name: "苗字"
+        first_name_kana: "名前(カナ)"
+        last_name_kana: "苗字(カナ)"
+        postal_code: "郵便番号"
+        address: "住所"
+        telephone_number: "電話番号"
+        
+      address:
+        postal_code: "郵便番号"
+        address: "住所"
+        name: "宛名"
+        
+      genre:
+        genre_name: "ジャンル名"
+        
+      item:
+        name: "商品名"
+        opinion: "商品説明"
+        price_without_tax: "値段"
+        genre_id: "ジャンル"
+        image: "商品画像"
+

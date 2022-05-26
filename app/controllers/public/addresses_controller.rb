@@ -13,7 +13,6 @@ class Public::AddressesController < ApplicationController
       redirect_to addresses_path, notice: '配送先の新規登録がされました。'
     else
       @addresses =current_customer.addresses
-      flash.now[:alert] = '空欄を埋めてください。'
       render "index"
     end
   end
@@ -27,7 +26,7 @@ class Public::AddressesController < ApplicationController
     if @address.update(address_params)
       redirect_to addresses_path, notice: '配送先情報が更新されました。'
     else
-      flash.now[:alert] = '空欄を埋めてください。'
+      
       render "edit"
     end
   end
