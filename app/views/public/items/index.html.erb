@@ -1,12 +1,11 @@
-
 <div class="container">
   <div class="row">
-    <h3 class="px-5 bg-light">商品一覧</h3>  
+    <h3 class="px-5 bg-light">商品一覧</h3>
   </div>
   <div class="row">
     <% @items.each do |item| %>
       <div class="col-3">
-        <div class="card">
+        <div class="card mb-4">
           <%= link_to item_path(item) do %>
             <%= image_tag item.image, size: "250x150"%>
             <p><%= item.name %></p>
@@ -15,11 +14,9 @@
         </div>
       </div>
     <% end %>
-    <div class="row align-bottom">
-      <div class="mx-auto">
-        <%= paginate @items %>
-      </div>
-    </div>
+  </div>
+  <div class="row justify-content-center mt-4">
+    <%= paginate @items ,theme: 'bootstrap-5'%>
   </div>
 </div>
 

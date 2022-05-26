@@ -29,11 +29,10 @@
         <% end %>
       </tbody>
       </table>
+      <div class="row align-bottom mx-auto">
+        <div class="mx-auto">
+          <%= paginate @customers ,theme: 'bootstrap-5'%>
+        </div>
+      </div>
     </div>
-
-   <div class="row align-bottom">
-    <div class="mx-auto">
-     <%= paginate @customers %>
-    </div>
-   </div>
  </div>
