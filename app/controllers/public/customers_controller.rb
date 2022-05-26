@@ -15,7 +15,7 @@ class Public::CustomersController < ApplicationController
     if @customer.update(customer_params)
       redirect_to customer_path, notice: "会員情報が更新されました。"
     else
-      flash.now[:alert] = '空欄を埋めてください。'
+      # flash.now[:alert] = '空欄を埋めてください。'
       render "edit"
     end
   end
