@@ -1,16 +1,4 @@
-<% if @genre.errors.any? %>
-  <%= @genre.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @genre.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
 <div class="container">
-  <div class="flash row">
-    <p class="text-success"><%= flash[:notice] %></p>
-  </div>
   <div class="row">
     <h3 class="px-5 bg-light">ジャンル一覧・追加</h3>    
   </div>

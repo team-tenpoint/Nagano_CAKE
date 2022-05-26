@@ -34,10 +34,8 @@
         <% end %>
       </tbody>
     </table>
-    <div class="row align-bottom">
-      <div class="mx-auto">
-        <%= paginate @items %>
-      </div>
+    <div class="row align-bottom mx-auto">
+      <%= paginate @items ,theme: 'bootstrap-5'%>
     </div>
   </div>
 </div>
