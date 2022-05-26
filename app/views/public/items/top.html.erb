@@ -12,7 +12,7 @@
     <h3 class="px-5 bg-light">新着商品</h3>
   </div>
   <div class="row mt-4">
-    <% @items.reverse_each do |item| %>
+    <% @items.first(4).reverse_each do |item| %>
       <div class="col-3">
         <div class="card">
           <%= link_to item_path(item) do %>
@@ -24,7 +24,7 @@
       </div>
     <% end %>
   </div>
-  <div class="row">
+  <div class="row mt-4">
     <div class="offset-10">
       <%= link_to "全ての商品を見る", items_path %>
     </div>

@@ -1,25 +1,13 @@
-<% if @genre.errors.any? %>
-  <%= @genre.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @genre.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
 <div class="container">
-  <div class="flash row">
-    <p class="text-success"><%= flash[:notice] %></p>
-  </div>
   <div class="row">
-    <h3 class="px-5 bg-light">ジャンル一覧・追加</h3>    
+    <h3 class="px-5 bg-light">ジャンル一覧・追加</h3>
   </div>
   <div class="row">
     <div class="col-6 offset-3">
       <%= form_with model: @genre, url: "/admin/genres", method: :post do |f| %>
         <div class="form_group">
           <%= f.label :genre_name, "ジャンル名", class: "" %>
-          <%= f.text_field :genre_name, placeholder: "ジャンル名", class: "" %>  
+          <%= f.text_field :genre_name, placeholder: "ジャンル名", class: "" %>
           <%= f.submit "新規登録", class: "btn btn-success" %>
         </div>
       <% end %>
