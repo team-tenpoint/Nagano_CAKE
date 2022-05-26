@@ -148,3 +148,4 @@ ja:
       invalid: "は有効でありません。"
       confirmation: "が内容とあっていません。"
       required: "が入力されてません"
+      not_a_number: "が数字ではありません"
