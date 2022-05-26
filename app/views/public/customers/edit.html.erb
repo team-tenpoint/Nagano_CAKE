@@ -1,19 +1,16 @@
+<div><%= render "layouts/errors", obj: @customer %></div>
 <div class="container">
   <div class ="row">
     <h4 class ="px-5 bg-light">会員情報編集</h4>
   </div>
-
-
   <%= form_with model: @customer, url: customer_path(@customer.id), method: :patch do |f| %>
-
    <div class="row">
     <div class="table">
-
-      <div class="field form_group row mb-4">
-       <th><%= f.label "名前", class: "col-2" %></th>
-        <div class="col-2"><%= f.text_field :last_name %></div>
-        <div class="col-8"><%= f.text_field :first_name %></div>
-      </div>
+     <div class="field form_group row mb-4">
+      <th><%= f.label "名前", class: "col-2" %></th>
+       <div class="col-2"><%= f.text_field :last_name %></div>
+       <div class="col-8"><%= f.text_field :first_name %></div>
+     </div>
 
      <div class="field form_group row mb-4">
         <th><%= f.label "フリガナ", class: "col-2" %></th>
@@ -39,15 +36,14 @@
       <div class="field form_group row mb-4">
           <th><%= f.label "メールアドレス", class: "col-2" %></th>
          <div class="col-2"><%= f.text_field :email %></div>
-       </div>
+      </div>
      </div>
    </div>
+   <div class="mx-auto">
+    <%= f.submit '変更を保存', class:"btn btn-success" %>
 
-  <div class="mx-auto">
-   <%= f.submit '変更を保存', class:"btn btn-success" %>
-
-   <%= link_to "退会する", quit_path, class:"btn btn-danger" %>
-  </div>
+    <%= link_to "退会する", quit_path, class:"btn btn-danger" %>
+   </div>
  </div>
-<% end %>
+ <% end %>
 </div>
