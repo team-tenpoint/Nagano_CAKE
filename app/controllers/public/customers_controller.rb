@@ -15,7 +15,6 @@ class Public::CustomersController < ApplicationController
     if @customer.update(customer_params)
       redirect_to customer_path, notice: "会員情報が更新されました。"
     else
-      flash.now[:alert] = '空欄を埋めてください。'
       render "edit"
     end
   end
@@ -24,8 +23,6 @@ class Public::CustomersController < ApplicationController
   end
 
   def out
-    # @customer = Customer.find(params[:id])
-    # is_deletedカラムをtrueに変更することにより削除フラグを立てる
     current_customer.update(is_deleted: true)
     reset_session
     flash[:notice] = "退会手続きが完了しました。またのご利用をお待ちしています。"

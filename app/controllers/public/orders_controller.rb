@@ -1,6 +1,6 @@
 class Public::OrdersController < ApplicationController
   before_action :authenticate_customer!
-  
+
   def new
     @order = Order.new
   end
@@ -61,6 +61,7 @@ class Public::OrdersController < ApplicationController
         render "new"
       end
     else
+      flash.now[:alert] = "お届け先を選択してください"
       render "new"
     end
     @cart_items = current_customer.cart_items
