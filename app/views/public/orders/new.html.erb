@@ -1,5 +1,5 @@
-<p class ="text-danger"><%= alert %></p>
 <div class = "container">
+  <p class ="text-danger"><%= alert %></p>
     <div class ="row">
       <h3 class ="px-5 bg-light">注文情報入力</h3>
     </div>
@@ -28,7 +28,7 @@
         <div class ="ml-5">
           <%= f.radio_button :select_address, 1 %>
           <%= f.label :select_address_1, "登録済み住所から選択" %>
-          <div class ="ml-4 ">
+          <div class ="form-select form-select-lg mb-3 ml-4 row ">
             <%= f.select :address_id, options_from_collection_for_select(current_customer.addresses.all, :id, :address_display) %>
           </div>
         </div>
@@ -52,7 +52,7 @@
       </div>
       <div style="text-align:center;">
         <div class="form-group mt-5">
-          <%= f.submit "確認画面へ進む", class:"btn btn-primary" %>
+          <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
         </div>
       </div>
     <% end %>
