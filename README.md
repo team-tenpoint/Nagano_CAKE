@@ -1,24 +1,64 @@
-# README
+<概要>
+長野県にある洋菓子店「ながのCAKE」の商品を通販するための、ECサイト開発。
+SNSで話題となり、全国から問い合わせが殺到したため、ECサイトの作成を依頼された。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<制作期間>
+2022/5/11~5/28
 
-Things you may want to cover:
+<制作メンバー>
+まっさん
+しゅんちやん
+はっしー
 
-* Ruby version
 
-* System dependencies
+<機能一覧>
+1 会員側
 
-* Configuration
+ログイン機能
+ログアウト機能
+商品一覧表示機能
+商品詳細情報表示機能
+カート追加機能
+カート一覧機能
+注文機能
+退会機能
+配送先追加・編集機能
+注文履歴一覧表示機能
+注文履歴詳細表示機能
 
-* Database creation
+2 管理者側
 
-* Database initialization
+会員情報編集機能
+退会機能
+注文履歴一覧表示機能
+注文履歴個人一覧表示機能
+注文履歴詳細表示機能
+配送ステータス絞り込み機能
+ログイン機能
+ログアウト機能
+顧客一覧表示機能
+顧客詳細情報表示機能
+商品一覧表示機能
+商品詳細情報表示機能
+商品情報変更機能
+ジャンル設定機能
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+<開発環境>
+IDE:AWS cloud9
+使用言語：Ruby(2.6.3)
+フレームワーク: Ruby on Rails (6.1.6)
+JSライブラリ: jQuery
+データベース: sqlite (3.8.11)
 
-* Deployment instructions
+<使用Gem>
+devise
+kaminari
+pry-byebug
+pry-rails
+bootsnap (1.4.4)
+enum_help
+bootstrap5-kaminari-views (0.0.1)
 
-* ...
+<使用yarn>
+Bootstrap (4.5.3)
