@@ -1,6 +1,3 @@
-<p class ="text-success"><%= notice %></p>
-<p class ="text-danger"><%= alert %></p>
-
 <div class="container">
   <div class ="row">
     <h4 class ="px-5 bg-light">会員情報編集</h4>
@@ -46,11 +43,11 @@
      </div>
    </div>
 
-            <div class="mx-auto">
-               <%= f.submit '変更を保存', class:"btn btn-success" %>
+  <div class="mx-auto">
+   <%= f.submit '変更を保存', class:"btn btn-success" %>
 
-               <%= link_to "退会する", quit_path, class:"btn btn-danger" %>
-           </div>
-        </div>
-      <% end %>
-     </div>
+   <%= link_to "退会する", quit_path, class:"btn btn-danger" %>
+  </div>
+ </div>
+<% end %>
+</div>

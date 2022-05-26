@@ -16,7 +16,7 @@
       <div class="col-3">
         <div class="card">
           <%= link_to item_path(item) do %>
-            <%= image_tag item.image, size: "200x100" %>
+            <%= image_tag item.image, size: "250x150" %>
             <p><%= item.name %></p>
             <p>¥<%= (item.price_without_tax*1.1).floor.to_s(:delimited) %></p>
           <% end %>
