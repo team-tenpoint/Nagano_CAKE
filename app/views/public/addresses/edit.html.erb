@@ -1,6 +1,6 @@
-<p class ="text-success"><%= notice %></p>
-<p class ="text-danger"><%= alert %></p>
 <div class='container'>
+  <p class ="text-success"><%= notice %></p>
+  <p class ="text-danger"><%= alert %></p>
   <h3 class="px-5 bg-light">配送先編集</h3>
   <%= form_with model: @address, local:true ,method: :patch do |f| %>
   <div class="form-group row">
