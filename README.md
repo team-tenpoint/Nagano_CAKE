@@ -97,4 +97,4 @@ SNSで話題となり、全国から問い合わせが殺到したため、ECサ
 
 - enum_help
 
-- bootstrap5-kaminari-views (0.0.1)
+-　　bootstrap5-kaminari-views (0.0.1)
